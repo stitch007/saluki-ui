@@ -1,0 +1,96 @@
+.sa-upload input {
+  display: none;
+}
+
+.sa-upload-image {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border: 1px dashed #9ca3af;
+  border-radius: 4px;
+  transition: border-color .3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.sa-upload-image:hover {
+  border-color: #425aef;
+}
+
+.sa-upload-image > div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 14px;
+  transition: color .3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sa-upload-image:hover > div {
+  color: #425aef;
+}
+
+.sa-upload-image > img {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sa-upload-image__show {
+  border: none;
+}
+
+.sa-upload-image__show > div {
+  display: none;
+}
+
+.sa-upload-image__show > img {
+  display: block;
+}
+
+.sa-upload-file-list {
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+.sa-upload-file-list-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 6px 0;
+  border-radius: 4px;
+  transition: background-color .3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.sa-upload-file-list-item:hover {
+  background-color: #f3f3f5;
+}
+
+.sa-upload-file-list-item > * {
+  display: block;
+  color: #333639;
+}
+
+.sa-upload-file-list-item svg {
+  opacity: 0.6;
+  width: 20px;
+  height: 20px;
+  padding-left: 6px;
+  padding-right: 4px;
+}
+
+.sa-upload-file-list-item > :last-child > svg {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+  transition: opacity .2s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+}
+
+.sa-upload-file-list-item:hover > :last-child > svg {
+  opacity: 0.6;
+}

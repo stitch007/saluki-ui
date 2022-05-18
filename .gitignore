@@ -1,0 +1,10 @@
+.idea
+.vscode
+*.log
+*.tmp
+.cache
+.temp
+es
+lib
+dist
+node_modules

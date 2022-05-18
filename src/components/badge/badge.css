@@ -1,0 +1,24 @@
+.sa-badge {
+  position: relative;
+  display: inline-flex;
+}
+
+.sa-badge-sup {
+  position: absolute;
+  left: 100%;
+  bottom: calc(100% - 9px);
+  height: 18px;
+  padding: 0 6px;
+  background-color: var(--sa-color);
+  border-radius: 9px;
+  color: var(--sa-text-color);
+  font-size: var(--sa-font-size);
+  transform: translateX(-50%);
+}
+
+.sa-badge__dot > .sa-badge-sup {
+  bottom: calc(100% - 4px);
+  height: 8px;
+  width: 8px;
+  padding: 0;
+}

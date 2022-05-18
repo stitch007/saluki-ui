@@ -1,0 +1,32 @@
+.sa-dropdown {
+  position: relative;
+}
+
+.sa-dropdown-options {
+  position: absolute;
+  top: calc(100% + var(--sa-top));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+}
+
+.sa-dropdown-options-enter-active, .sa-dropdown-options-leave-active {
+  transition: opacity .3s var(--sa-easing), transform .3s var(--sa-easing);
+  transform-origin: -50% 0;
+}
+
+.sa-dropdown-options-enter-from, .sa-dropdown-options-leave-to {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.sa-dropdown-triangle {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  border-bottom: 7px solid var(--sa-color);
+  transform: translateX(-50%);
+}

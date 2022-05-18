@@ -1,0 +1,35 @@
+:root, html.dark {
+  --c-brand: rgb(66, 90, 239);
+  --c-brand-light: rgba(66, 90, 239, 0.9);
+}
+
+.sidebar::-webkit-scrollbar{
+  width: 5px;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background-color: #eee;
+}
+
+.dark .sidebar::-webkit-scrollbar-track {
+  background-color: #1d1b26;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: #acadb3;
+  cursor: pointer;
+}
+
+.dark .sidebar::-webkit-scrollbar-thumb {
+  background-color: #595864;
+}
+
+.sidebar::-webkit-scrollbar-corner {
+  background-color: transparent;
+}

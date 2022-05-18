@@ -1,0 +1,80 @@
+.sa-button {
+  box-sizing: border-box;
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: var(--sa-height);
+  width: var(--sa-width);
+  padding: var(--sa-padding);
+  background-color: initial;
+  border: var(--sa-border);
+  border-radius: var(--sa-border-radius);
+  color: var(--sa-text-color);
+  font-size: var(--sa-font-size);
+  line-height: 1;
+  transition: all .3s;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sa-button-content {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sa-button:hover, .sa-button:focus {
+  opacity: 0.9;
+}
+
+.sa-button-default {
+  background-color: var(--sa-color);
+}
+
+.sa-button-ghost {
+  background-color: transparent;
+}
+
+.sa-button-dashed {
+  background-color: transparent;
+  border-style: dashed;
+}
+
+.sa-button-round {
+  border-radius: 999px;
+}
+
+.sa-button-circle {
+  padding: 0;
+  border-radius: 999px;
+}
+
+.sa-button__disabled {
+  cursor: not-allowed;
+  opacity: 0.6 !important;
+}
+
+.sa-button__loading {
+  cursor: default;
+  opacity: 0.9;
+}
+
+.sa-button-icon > svg {
+  margin-right: 6px;
+  width: calc(var(--sa-font-size) + 2px);
+  height: calc(var(--sa-font-size) + 2px);
+}
+
+.sa-button__loading > .sa-button-icon > svg {
+  animation: sa-button-rotate 1s linear infinite;
+}
+
+@keyframes sa-button-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}

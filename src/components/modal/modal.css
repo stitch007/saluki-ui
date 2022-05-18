@@ -1,0 +1,29 @@
+.sa-modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--sa-mask-color);
+}
+
+.sa-modal-enter-active, .sa-modal-leave-active {
+  transition: opacity .3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.sa-modal-enter-from, .sa-modal-leave-to {
+  opacity: 0;
+}
+
+.sa-modal-enter-active > div > *, .sa-modal-leave-active > div > * {
+  transition: opacity .3s cubic-bezier(0, 0, 0.2, 1), transform .3s cubic-bezier(0, 0, 0.2, 1);
+  transform-origin: calc(var(--sa-x) + 50%) calc(var(--sa-y) + 50%);
+}
+
+.sa-modal-enter-from > div > *, .sa-modal-leave-to > div > * {
+  opacity: 0;
+  transform: scale(0.5);
+}

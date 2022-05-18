@@ -1,0 +1,27 @@
+.sa-shrink {
+  display: inline-flex;
+  padding: var(--sa-padding);
+  border-radius: var(--sa-border-radius-to);
+  transition: all var(--sa-duration);
+}
+
+.sa-shrink__keep {
+  background-color: var(--sa-color);
+  color: var(--sa-text-color);
+  animation: initial !important;
+}
+
+.sa-shrink:hover, .sa-shrink:active {
+  background-color: var(--sa-color);
+  color: var(--sa-text-color);
+  animation: sa-border-shrink var(--sa-duration) var(--sa-easing);
+}
+
+@keyframes sa-border-shrink {
+  0% {
+    border-radius: var(--sa-border-radius-from);
+  }
+  100% {
+    border-radius: var(--sa-border-radius-to);
+  }
+}

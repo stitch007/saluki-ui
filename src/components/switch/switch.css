@@ -1,0 +1,57 @@
+.sa-switch {
+  position: relative;
+  height: var(--sa-height);
+  min-width: var(--sa-width);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--sa-color);
+  border-radius: var(--sa-border-radius);
+  transition: background-color .3s var(--sa-easing), box-shadow .3s var(--sa-easing);
+  vertical-align: middle;
+  user-select: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.sa-switch__round {
+  border-radius: 999px;
+}
+
+.sa-switch-button {
+  position: absolute;
+  top: var(--sa-offset);
+  left: var(--sa-offset);
+  height: var(--sa-button-width);
+  width: var(--sa-button-width);
+  background-color: var(--sa-button-color);
+  border-radius: var(--sa-border-radius);
+  transition: all .3s var(--sa-easing);
+  box-shadow: var(--sa-button-box-shadow);
+}
+
+.sa-switch__round .sa-switch-button {
+  border-radius: 999px;
+}
+
+.sa-switch__active {
+  background-color: var(--sa-active-color);
+}
+
+.sa-switch__disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.sa-switch__focus {
+  box-shadow: var(--sa-focus-box-shadow);
+}
+
+.sa-switch__active .sa-switch-button {
+  left: calc(var(--sa-width) - var(--sa-button-width) - var(--sa-offset));
+}
+
+.sa-switch:not(.sa-switch__disabled):active .sa-switch-button {
+  transform: scaleX(1.3);
+}

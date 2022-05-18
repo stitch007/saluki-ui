@@ -1,0 +1,53 @@
+.sa-card {
+  background-color: var(--sa-color);
+  border: 1px solid var(--sa-border-color);
+  border-radius: var(--sa-border-radius);
+  color: var(--sa-text-color);
+  font-size: var(--sa-font-size);
+  line-height: var(--sa-line-height);
+  box-shadow: var(--box-shadow);
+  transition: box-shadow .3s;
+}
+
+.dark .sa-card {
+  background-color: var(--sa-dark-bg-color);
+  border-color: var(--sa-dark-border-color);
+  color: var(--sa-dark-text-color);
+}
+
+.sa-card > :first-child {
+  padding: var(--sa-padding);
+}
+
+.sa-card-header {
+  display: flex;
+  align-items: center;
+}
+
+.sa-card-header-main {
+  flex: auto;
+  color: var(--sa-title-color);
+  font-size: var(--sa-title-font-size);
+  font-weight: var(--sa-title-font-weight);
+}
+
+.dark .sa-card-header-main {
+  color: var(--sa-dark-title-color);
+}
+
+.sa-card-content, .sa-card-footer {
+  padding: var(--sa-padding);
+  padding-top: 0;
+}
+
+.sa-card-shadow-always, .sa-card-shadow-hover:hover {
+  box-shadow: var(--sa-box-shadow);
+}
+
+.dark .sa-card-shadow-always, .dark .sa-card-shadow-hover:hover {
+  box-shadow: var(--sa-dark-box-shadow);
+}
+
+.sa-card__bordered {
+  border: none !important;
+}

@@ -1,0 +1,35 @@
+.sa-menu {
+
+}
+
+.sa-menu-submenu {
+  transition: height .2s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.sa-menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: var(--sa-indent);
+  cursor: pointer;
+}
+
+.sa-menu-item > :first-child {
+  flex: auto;
+}
+
+.sa-menu-arrow {
+  width: var(--sa-arrow-size);
+  height: var(--sa-arrow-size);
+  color: var(--sa-arrow-color);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark .sa-menu-arrow {
+  color: var(--sa-dark-arrow-color);
+}
+
+.sa-menu-arrow__open {
+  transform: rotate(90deg);
+}
