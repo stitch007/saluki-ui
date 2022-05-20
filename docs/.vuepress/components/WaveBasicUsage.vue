@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import { WaveRef } from '../../../src'
+import { WaveRef } from 'saluki-ui'
 
 const singleEl = ref<WaveRef>()
 const infiniteEl = ref<WaveRef>()

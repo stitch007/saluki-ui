@@ -22,18 +22,11 @@ export default defineConfig({
           preserveModules: true,
           preserveModulesRoot: 'src',
         },
-        {
-          format: 'cjs',
-          dir: 'lib',
-          entryFileNames: '[name].js',
-          preserveModules: true,
-          preserveModulesRoot: 'src',
-        },
       ],
     },
     lib: {
       entry: 'src/index.ts',
-      formats: ['es', 'cjs'],
+      formats: ['es'],
     },
   },
   plugins: [

@@ -22,10 +22,12 @@ export default defineUserConfig({
     }
   },
   plugins: [
+    // @ts-ignore
     searchPlugin(),
     registerComponentsPlugin({
       componentsDir: path.resolve(__dirname, './components/'),
     }),
+    // @ts-ignore
     shikiPlugin({
       theme: 'dark-plus',
     }),
@@ -109,6 +111,6 @@ export default defineUserConfig({
       plugins: [
         VueJsx()
       ],
-    }
+    },
   })
 })

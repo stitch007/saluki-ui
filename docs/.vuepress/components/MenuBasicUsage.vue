@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { h } from 'vue'
-import type { MenuOptions } from '../../../src'
-import { SaButton } from '../../../src'
+import type { MenuOptions } from 'saluki-ui'
+import { SaButton } from 'saluki-ui'
 
 const menuOptions: MenuOptions[] = [
   {

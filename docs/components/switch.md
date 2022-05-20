@@ -16,7 +16,6 @@
 
 |名称|说明|类型|默认值|
 |---|---|---|---|
-
 |value|Switch 的值|`boolean`|`false`|
 |size|开关的大小|`'small' \| 'medium' \| 'large'`|`'medium'`|
 |disabled|是否禁用Switch|`boolean`|`false`|

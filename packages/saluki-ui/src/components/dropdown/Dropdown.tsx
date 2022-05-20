@@ -88,7 +88,7 @@ export default defineComponent({
       }
     }
 
-    const onLabelMouseover = (e: MouseEvent) => {
+    const onLabelMouseover = () => {
       if (props.trigger === 'hover') {
         showOptions.value = true
       }

@@ -42,7 +42,7 @@ export default defineComponent({
       } as StyleValue
     })
 
-    const onMaskClick = (e: Event) => {
+    const onMaskClick = () => {
       if (props.maskClosable) {
         show.value = false
       }
