@@ -1,8 +1,8 @@
-<div style="text-align: center;">
+<div align="center">
   <h1>Saluki UI</h1>
   <p><b>一个 Vue 3 组件库</b></p>
   <p><b>使用 TypeScript, 主题可调</b></p>
- </div>
+</div>
 
 ## 文档
 [saluki-ui.stitch.run](http://saluki-ui.stitch.run:8957)
