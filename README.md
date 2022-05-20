@@ -5,7 +5,7 @@
 </div>
 
 ## 文档
-[saluki-ui.stitch.run](http://saluki-ui.stitch.run:8957)
+[saluki-ui.stitch.run](http://114.132.223.202:8957)
 
 # 为什么要写组件库
 ...其实，我不太喜欢用组件库，你懂的，特别是现在已经有了WindiCSS、UnoCSS等CSS框架，
