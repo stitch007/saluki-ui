@@ -1,6 +1,6 @@
 {
   "name": "saluki-ui",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "private": false,
   "description": "A Component Library for Vue 3",
   "license": "MIT",
@@ -9,7 +9,7 @@
   "module": "es/index.js",
   "types": "es/index.d.ts",
   "files": [
-    "dist"
+    "es"
   ],
   "repository": {
     "type": "git",

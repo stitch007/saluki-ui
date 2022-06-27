@@ -1,9 +1,10 @@
 import type { PropType, StyleValue } from 'vue'
-import { computed, defineComponent, inject, ref } from 'vue'
+import { computed, defineComponent, ref } from 'vue'
+import { useTheme } from '../../hooks'
 import { Loading } from '../_internal/Icon'
+import { defaultTabsTheme } from '../tabs'
 import type { WaveRef } from '../wave'
 import { SaWave } from '../wave'
-import type { GlobalTheme } from '../theme'
 import { defaultButtonTheme } from './theme'
 
 export default defineComponent({
@@ -45,11 +46,8 @@ export default defineComponent({
     const waveEl = ref<WaveRef>()
 
     const cssVars = computed(() => {
-      type Key = keyof typeof defaultButtonTheme
-      const buttonTheme = (inject('sa-config-provider', {}) as GlobalTheme).Button
-      for (const key in buttonTheme) {
-        defaultButtonTheme[key as Key] = buttonTheme[key as Key] as string
-      }
+      const theme = useTheme('Button')
+      theme && Object.assign(defaultTabsTheme, theme)
       return {
         '--sa-height': defaultButtonTheme[`${props.size}Height`],
         '--sa-width': props.circle ? defaultButtonTheme[`${props.size}Height`] : 'initial',

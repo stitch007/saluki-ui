@@ -1,6 +1,7 @@
 import type { PropType, StyleValue } from 'vue'
-import { computed, defineComponent, inject, ref } from 'vue'
-import type { GlobalTheme } from '../theme'
+import { computed, defineComponent, ref } from 'vue'
+import { useTheme } from '../../hooks'
+import { defaultTabsTheme } from '../tabs'
 import { defaultSwitchTheme } from './theme'
 
 export default defineComponent({
@@ -27,11 +28,8 @@ export default defineComponent({
     })
 
     const cssVars = computed(() => {
-      type Key = keyof typeof defaultSwitchTheme
-      const switchTheme = (inject('sa-config-provider', {}) as GlobalTheme).Switch
-      for (const key in switchTheme) {
-        defaultSwitchTheme[key as Key] = switchTheme[key as Key] as string
-      }
+      const theme = useTheme('Switch')
+      theme && Object.assign(defaultTabsTheme, theme)
       return {
         '--sa-height': defaultSwitchTheme[`${props.size}Height`],
         '--sa-width': defaultSwitchTheme[`${props.size}Width`],

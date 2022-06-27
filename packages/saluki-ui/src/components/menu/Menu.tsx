@@ -1,7 +1,8 @@
 import type { PropType, StyleValue, VNodeChild } from 'vue'
-import { Transition, computed, defineComponent, inject, ref } from 'vue'
+import { Transition, computed, defineComponent, ref } from 'vue'
+import { useTheme } from '../../hooks'
 import { ArrowRight } from '../_internal/Icon'
-import type { GlobalTheme } from '../theme'
+import { defaultTabsTheme } from '../tabs'
 import { defaultMenuTheme } from './theme'
 
 export interface MenuOptions {
@@ -32,11 +33,8 @@ const Menu = defineComponent({
     const openOptionsKey = ref<number[]>([])
 
     const cssVars = computed(() => {
-      type Key = keyof typeof defaultMenuTheme
-      const menuTheme = (inject('sa-config-provider', {}) as GlobalTheme).Menu
-      for (const key in menuTheme) {
-        defaultMenuTheme[key as Key] = menuTheme[key as Key] as string
-      }
+      const theme = useTheme('Menu')
+      theme && Object.assign(defaultTabsTheme, theme)
       return {
         '--sa-indent': props.indent
           ? `${props.depth * props.indent}px`

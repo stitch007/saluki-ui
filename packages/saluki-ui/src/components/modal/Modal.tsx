@@ -1,7 +1,7 @@
 import type { StyleValue } from 'vue'
-import { Transition, computed, defineComponent, inject, watchEffect } from 'vue'
-import { useMousePosition } from '../../composables'
-import type { GlobalTheme } from '../theme'
+import { Transition, computed, defineComponent, watchEffect } from 'vue'
+import { useMousePosition, useTheme } from '../../hooks'
+import { defaultTabsTheme } from '../tabs'
 import { defaultModalTheme } from './theme'
 
 export default defineComponent({
@@ -18,10 +18,16 @@ export default defineComponent({
     },
   },
   emits: ['update:show'],
-  setup(props, { slots, emit }) {
+  setup(props, {
+    slots,
+    emit,
+  }) {
     const prefix = 'sa-modal'
 
-    const { x, y } = useMousePosition()
+    const {
+      x,
+      y,
+    } = useMousePosition()
 
     const show = computed({
       get: () => props.show,
@@ -29,11 +35,8 @@ export default defineComponent({
     })
 
     const cssVars = computed(() => {
-      type Key = keyof typeof defaultModalTheme
-      const modalTheme = (inject('sa-config-provider', {}) as GlobalTheme).Modal
-      for (const key in modalTheme) {
-        defaultModalTheme[key as Key] = modalTheme[key as Key] as string
-      }
+      const theme = useTheme('Modal')
+      theme && Object.assign(defaultTabsTheme, theme)
       return {
         '--sa-mask-color': defaultModalTheme.maskColor,
         '--sa-x': `${x.value - (document.documentElement.clientWidth / 2)}px`,

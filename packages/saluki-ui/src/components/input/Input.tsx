@@ -1,7 +1,8 @@
 import type { PropType, StyleValue } from 'vue'
-import { computed, defineComponent, inject, ref } from 'vue'
+import { computed, defineComponent, ref } from 'vue'
+import { useTheme } from '../../hooks'
 import { EyeClose, EyeOpen } from '../_internal/Icon'
-import type { GlobalTheme } from '../theme'
+import { defaultTabsTheme } from '../tabs'
 import { defaultInputTheme } from './theme'
 
 export default defineComponent({
@@ -45,11 +46,8 @@ export default defineComponent({
     })
 
     const cssVars = computed(() => {
-      type Key = keyof typeof defaultInputTheme
-      const inputTheme = (inject('sa-config-provider', {}) as GlobalTheme).Input
-      for (const key in inputTheme) {
-        defaultInputTheme[key as Key] = inputTheme[key as Key] as string
-      }
+      const theme = useTheme('Input')
+      theme && Object.assign(defaultTabsTheme, theme)
       return {
         '--sa-height': defaultInputTheme[`${props.size}Height`],
         '--sa-padding': defaultInputTheme.padding,

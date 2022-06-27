@@ -1,7 +1,8 @@
 import type { PropType, StyleValue } from 'vue'
 import { computed, defineComponent, inject, ref } from 'vue'
+import { useTheme } from '../../hooks'
 import { Check } from '../_internal/Icon'
-import type { GlobalTheme } from '../theme'
+import { defaultTabsTheme } from '../tabs'
 import { defaultCheckboxTheme } from './theme'
 import type { CheckboxGroupProvide } from './CheckboxGroup'
 
@@ -48,11 +49,8 @@ export default defineComponent({
     })
 
     const cssVars = computed(() => {
-      type Key = keyof typeof defaultCheckboxTheme
-      const checkboxTheme = (inject('sa-config-provider', {}) as GlobalTheme).Checkbox
-      for (const key in checkboxTheme) {
-        defaultCheckboxTheme[key as Key] = checkboxTheme[key as Key] as string
-      }
+      const theme = useTheme('Checkbox')
+      theme && Object.assign(defaultTabsTheme, theme)
       return {
         '--sa-size': defaultCheckboxTheme[`${props.size}Size`],
         '--sa-label-padding': defaultCheckboxTheme.labelPadding,

@@ -1,6 +1,7 @@
 import type { PropType, StyleValue } from 'vue'
-import { computed, defineComponent, inject } from 'vue'
-import type { GlobalTheme } from '../theme'
+import { computed, defineComponent } from 'vue'
+import { useTheme } from '../../hooks'
+import { defaultTabsTheme } from '../tabs'
 import { defaultCardTheme } from './theme'
 
 export default defineComponent({
@@ -23,11 +24,8 @@ export default defineComponent({
     const prefix = 'sa-card'
 
     const cssVars = computed(() => {
-      type Key = keyof typeof defaultCardTheme
-      const cardTheme = (inject('sa-config-provider', {}) as GlobalTheme).Card
-      for (const key in cardTheme) {
-        defaultCardTheme[key as Key] = cardTheme[key as Key] as string
-      }
+      const theme = useTheme('Card')
+      theme && Object.assign(defaultTabsTheme, theme)
       return {
         '--sa-padding': defaultCardTheme[`${props.size}Padding`],
         '--sa-color': defaultCardTheme.color,

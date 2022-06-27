@@ -1,6 +1,7 @@
 import type { PropType, StyleValue } from 'vue'
-import { Transition, computed, defineComponent, inject, onBeforeUnmount, onMounted, ref } from 'vue'
-import type { GlobalTheme } from '../theme'
+import { Transition, computed, defineComponent, onBeforeUnmount, onMounted, ref } from 'vue'
+import { useTheme } from '../../hooks'
+import { defaultTabsTheme } from '../tabs'
 import { defaultDropdownTheme } from './theme'
 
 export default defineComponent({
@@ -28,11 +29,8 @@ export default defineComponent({
     const optionsRect = ref<DOMRect>()
 
     const cssVars = computed(() => {
-      type Key = keyof typeof defaultDropdownTheme
-      const dropdownTheme = (inject('sa-config-provider', {}) as GlobalTheme).Dropdown
-      for (const key in dropdownTheme) {
-        defaultDropdownTheme[key as Key] = dropdownTheme[key as Key] as string
-      }
+      const theme = useTheme('Dropdown')
+      theme && Object.assign(defaultTabsTheme, theme)
       return {
         '--sa-top': `${props.top}px`,
         '--sa-color': defaultDropdownTheme.color,

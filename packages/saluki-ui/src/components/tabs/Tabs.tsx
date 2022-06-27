@@ -1,8 +1,7 @@
 import type { ComponentPublicInstance, PropType, StyleValue, VNode } from 'vue'
-import { KeepAlive, computed, defineComponent, inject, ref, watchEffect } from 'vue'
-import { useHorizontalScroll } from '../../composables'
+import { KeepAlive, computed, defineComponent, ref, watchEffect } from 'vue'
+import { useHorizontalScroll, useTheme } from '../../hooks'
 import { SaShrink } from '../shrink'
-import type { GlobalTheme } from '../theme'
 import { defaultTabsTheme } from './theme'
 
 export default defineComponent({
@@ -31,11 +30,8 @@ export default defineComponent({
     })
 
     const cssVars = computed(() => {
-      type Key = keyof typeof defaultTabsTheme
-      const tabsTheme = (inject('sa-config-provider', {}) as GlobalTheme).Tabs
-      for (const key in tabsTheme) {
-        defaultTabsTheme[key as Key] = tabsTheme[key as Key] as string
-      }
+      const theme = useTheme('Tabs')
+      theme && Object.assign(defaultTabsTheme, theme)
       const isShrink = props.type === 'shrink'
       return {
         '--sa-panel-padding': defaultTabsTheme[`${props.size}PanelPadding`],

@@ -1,6 +1,7 @@
 import type { PropType, StyleValue } from 'vue'
-import { computed, defineComponent, inject } from 'vue'
-import type { GlobalTheme } from '../theme'
+import { computed, defineComponent } from 'vue'
+import { useTheme } from '../../hooks'
+import { defaultTabsTheme } from '../tabs'
 import { defaultBadgeTheme } from './theme'
 
 export default defineComponent({
@@ -21,11 +22,8 @@ export default defineComponent({
     const prefix = 'sa-badge'
 
     const cssVars = computed(() => {
-      type Key = keyof typeof defaultBadgeTheme
-      const badgeTheme = (inject('sa-config-provider', {}) as GlobalTheme).Badge
-      for (const key in badgeTheme) {
-        defaultBadgeTheme[key as Key] = badgeTheme[key as Key] as string
-      }
+      const theme = useTheme('Badge')
+      theme && Object.assign(defaultTabsTheme, theme)
       return {
         '--sa-color': props.color ?? defaultBadgeTheme.color,
         '--sa-text-color': defaultBadgeTheme.textColor,
