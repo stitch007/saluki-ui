@@ -5,7 +5,7 @@
 </div>
 
 ## 文档
-[saluki-ui.stitch.run](http://114.132.223.202:8957)
+[saluki-ui.stitch.run](http://116.62.101.136:8957/)
 
 ## 安装
 ```bash
